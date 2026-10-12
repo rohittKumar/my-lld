@@ -11,11 +11,12 @@ public class RateLimiterApplication {
 
         RateLimiterService rateLimiterService = new RateLimiterService();
 
-        for (int i = 1; i <= 15; i++) {
+        for (int i = 1; i <= 20; i++) {
+            if (i == 3) Thread.sleep(5000);
             boolean allowed = rateLimiterService.allowRequest(freeUser);
             System.out.println("Request " + i + ": " + (allowed ? "ALLOWED" : "REJECTED"));
 
-//            Thread.sleep(500);
+            Thread.sleep(500);
         }
 
         System.out.println("*** Premium User ***");

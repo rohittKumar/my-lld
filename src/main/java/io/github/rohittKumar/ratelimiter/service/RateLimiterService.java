@@ -8,7 +8,6 @@ import io.github.rohittKumar.ratelimiter.model.RateLimiterConfig;
 import io.github.rohittKumar.ratelimiter.model.User;
 
 import java.util.EnumMap;
-import java.util.HashMap;
 import java.util.Map;
 
 public class RateLimiterService {
@@ -18,8 +17,8 @@ public class RateLimiterService {
         rateLimiters.put(
                 UserTier.FREE,
                 RateLimiterFactory.getRateLimiter(
-                        RateLimiterType.TOKEN_BUCKET,
-                        new RateLimiterConfig(10, 60)
+                        RateLimiterType.FIXED_WINDOW,
+                        new RateLimiterConfig(2, 5)
                 )
         );
 
